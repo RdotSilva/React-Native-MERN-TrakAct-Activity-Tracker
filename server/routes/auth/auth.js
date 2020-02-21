@@ -7,12 +7,15 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   const { email, password } = req.body;
+  try {
+    const user = new User({ email, password });
 
-  const user = new User({ email, password });
+    await user.save();
 
-  await user.save();
-
-  res.send("New User Created!");
+    res.send("New User Created!");
+  } catch (err) {
+    return res.status(422).send(err.message);
+  }
 });
 
 module.exports = router;

@@ -1,12 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const mongoURI = require("./config/config").mongoURI;
+const bodyParser = require("body-parser");
 
 // Routes
 const auth = require("./routes/auth/auth");
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(auth);
 
 mongoose.connect(mongoURI, {

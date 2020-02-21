@@ -2,7 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const mongoURI = require("./config/config").mongoURI;
 
+// Routes
+const auth = require("./routes/auth/auth");
+
 const app = express();
+
+app.use(auth);
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

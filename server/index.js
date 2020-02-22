@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Mount Routers
-app.use("/", auth);
+app.use("/api/v1/auth", auth);
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

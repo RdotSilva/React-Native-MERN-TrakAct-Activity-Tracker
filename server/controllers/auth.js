@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const User = mongoose.model("User");
 
 // @desc    Register user
-// @route   POST /signup
+// @route   POST /api/v1/auth/signup
 // @access  Public
 exports.signUp = async (req, res) => {
   const { email, password } = req.body;
@@ -23,7 +23,7 @@ exports.signUp = async (req, res) => {
 };
 
 // @desc    Login
-// @route   POST /signin
+// @route   POST /api/v1/auth/signin
 // @access  Public
 exports.signIn = async (req, res) => {
   const { email, password } = req.body;

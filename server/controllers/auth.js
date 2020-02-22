@@ -6,6 +6,9 @@ const User = mongoose.model("User");
 
 const router = express.Router();
 
+// @desc    Register user
+// @route   POST /signup
+// @access  Public
 exports.signUp(async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -21,6 +24,9 @@ exports.signUp(async (req, res) => {
   }
 });
 
+// @desc    Login
+// @route   POST /signin
+// @access  Public
 exports.signIn(async (req, res) => {
   const { email, password } = req.body;
 

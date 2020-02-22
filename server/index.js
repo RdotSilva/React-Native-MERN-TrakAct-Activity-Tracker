@@ -11,7 +11,9 @@ const auth = require("./routes/auth/auth");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(auth);
+
+// Mount Routers
+app.use("/", auth);
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

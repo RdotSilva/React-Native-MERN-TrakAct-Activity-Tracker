@@ -4,12 +4,10 @@ const jwt = require("jsonwebtoken");
 
 const User = mongoose.model("User");
 
-const router = express.Router();
-
 // @desc    Register user
 // @route   POST /signup
 // @access  Public
-exports.signUp(async (req, res) => {
+exports.signUp = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = new User({ email, password });
@@ -22,12 +20,12 @@ exports.signUp(async (req, res) => {
   } catch (err) {
     return res.status(422).send(err.message);
   }
-});
+};
 
 // @desc    Login
 // @route   POST /signin
 // @access  Public
-exports.signIn(async (req, res) => {
+exports.signIn = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -47,4 +45,4 @@ exports.signIn(async (req, res) => {
   } catch (err) {
     return res.status(422).send({ error: "Invalid password or email" });
   }
-});
+};

@@ -33,6 +33,14 @@ router.post("/signin", async (req, res) => {
   if (!user) {
     return res.status(422).send({ error: "Invalid password or email" });
   }
+
+  try {
+    await user.comparePassword(password);
+    const token = jwt.sign({ userId: user._id }, "NOTSECRET");
+    res.send({ token });
+  } catch (err) {
+    return res.status(422).send({ error: "Invalid password or email" });
+  }
 });
 
 module.exports = router;

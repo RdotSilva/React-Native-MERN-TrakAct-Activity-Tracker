@@ -10,23 +10,36 @@ import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 // React navigation
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
 
-const AppNavigator = () => {
+const LoggedInStackNavigator = () => {
   const isLoggedIn = false;
   return (
+    <Stack.Navigator>
+      {isLoggedIn ? (
+        <>
+          <Stack.Screen name="TrackList" component={TrackListScreen} />
+          <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
+        </>
+      ) : (
+        <Stack.Screen name="Signin" component={SigninScreen} />
+      )}
+    </Stack.Navigator>
+  );
+};
+
+const TabNav = () => {
+  return <Tab.Navigator></Tab.Navigator>;
+};
+
+const AppNavigator = () => {
+  return (
     <NavigationContainer>
-      <Stack.Navigator>
-        {isLoggedIn ? (
-          <>
-            <Stack.Screen name="TrackList" component={TrackListScreen} />
-            <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
-          </>
-        ) : (
-          <Stack.Screen name="Signin" component={SigninScreen} />
-        )}
-      </Stack.Navigator>
+      <LoggedInStackNavigator />
     </NavigationContainer>
   );
 };

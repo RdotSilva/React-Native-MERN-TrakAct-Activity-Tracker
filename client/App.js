@@ -16,15 +16,12 @@ const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
 
-const LoggedInStackNavigator = () => {
-  const isLoggedIn = false;
+const MainStackNavigator = () => {
+  const isLoggedIn = true;
   return (
     <Stack.Navigator>
       {isLoggedIn ? (
-        <>
-          <Stack.Screen name="TrackList" component={TrackListScreen} />
-          <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
-        </>
+        <Stack.Screen name="TabNav" component={TabNav} />
       ) : (
         <Stack.Screen name="Signin" component={SigninScreen} />
       )}
@@ -42,13 +39,19 @@ const TrackStackNavigator = () => {
 };
 
 const TabNav = () => {
-  return <Tab.Navigator></Tab.Navigator>;
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="TrackStackNavigator" component={TrackStackNavigator} />
+      <Tab.Screen name="TrackCreate" component={TrackCreateScreen} />
+      <Tab.Screen name="Account" component={AccountScreen} />
+    </Tab.Navigator>
+  );
 };
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <LoggedInStackNavigator />
+      <MainStackNavigator />
     </NavigationContainer>
   );
 };

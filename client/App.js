@@ -14,29 +14,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
+  const isLoggedIn = false;
   return (
     <NavigationContainer>
       <Stack.Navigator>
         {isLoggedIn ? (
           <>
-            <Stack.Screen
-              name="TrackList"
-              component={TrackListScreen}
-              options={{ title: "Track List" }}
-            />
-            <Stack.Screen
-              name="TrackDetail"
-              component={TrackDetailScreen}
-              options={{ title: "Track Details" }}
-            />
+            <Stack.Screen name="TrackList" component={TrackListScreen} />
+            <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
           </>
         ) : (
-          <Stack.Screen
-            name="SignIn"
-            component={SigninScreen}
-            options={{ title: "Sign In" }}
-          />
-        )}
+          <Stack.Screen name="Signin" component={SigninScreen} />
         )}
       </Stack.Navigator>
     </NavigationContainer>
@@ -46,9 +34,11 @@ const AppNavigator = () => {
 const App = () => {
   return (
     <View>
-      <Text>Open up App.js to start working on your app!</Text>
+      <AppNavigator />
     </View>
   );
 };
 
 const styles = StyleSheet.create({});
+
+export default App;

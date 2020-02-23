@@ -32,6 +32,15 @@ const LoggedInStackNavigator = () => {
   );
 };
 
+const TrackStackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="TrackList" component={TrackListScreen} />
+      <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
+    </Stack.Navigator>
+  );
+};
+
 const TabNav = () => {
   return <Tab.Navigator></Tab.Navigator>;
 };

@@ -24,14 +24,18 @@ const AuthStackNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+// Main stack navigator. This will check if user is logged in.
+// If user logged in then bring them to the main track details screen (which is a tab navigator).
+// If not logged in bring them to the "auth" stack navigator with access to sign in and sign up.
 const MainStackNavigator = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   return (
     <Stack.Navigator>
       {isLoggedIn ? (
         <Stack.Screen name="TabNav" component={TabNav} />
       ) : (
-        <Stack.Screen name="Signin" component={SigninScreen} />
+        <Stack.Screen name="Please Sign In" component={AuthStackNavigator} />
       )}
     </Stack.Navigator>
   );
@@ -49,26 +53,18 @@ const TrackStackNavigator = () => {
 const TabNav = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="TrackStackNavigator" component={TrackStackNavigator} />
-      <Tab.Screen name="TrackCreate" component={TrackCreateScreen} />
+      <Tab.Screen name="Tracks" component={TrackStackNavigator} />
       <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen name="Create" component={TrackCreateScreen} />
     </Tab.Navigator>
-  );
-};
-
-const AppNavigator = () => {
-  return (
-    <NavigationContainer>
-      <MainStackNavigator />
-    </NavigationContainer>
   );
 };
 
 const App = () => {
   return (
-    <View>
-      <AppNavigator />
-    </View>
+    <NavigationContainer>
+      <MainStackNavigator />
+    </NavigationContainer>
   );
 };
 

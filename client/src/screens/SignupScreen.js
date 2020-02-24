@@ -13,10 +13,10 @@ const SignupScreen = ({ navigation }) => {
         <Text h3>Sign Up</Text>
       </Spacer>
       <Spacer>
-        <Input label="Email" />
+        <Input label="Email" value={email} onChangeText={setEmail} />
       </Spacer>
       <Spacer>
-        <Input label="Password" />
+        <Input label="Password" value={password} onChangeText={setPassword} />
       </Spacer>
       <Spacer>
         <Button title="Sign Up " />

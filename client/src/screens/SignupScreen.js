@@ -28,6 +28,7 @@ const SignupScreen = ({ navigation }) => {
           onChangeText={setPassword}
           autoCapitalize="none"
           autoCorrect={false}
+          secureTextEntry
         />
       </Spacer>
       <Spacer>

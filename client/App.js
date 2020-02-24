@@ -16,6 +16,14 @@ const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
 
+const AuthStackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Signin" component={SigninScreen} />
+      <Stack.Screen name="Signup" component={SignupScreen} />
+    </Stack.Navigator>
+  );
+};
 const MainStackNavigator = () => {
   const isLoggedIn = true;
   return (

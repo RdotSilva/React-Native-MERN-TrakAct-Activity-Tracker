@@ -13,9 +13,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
-
 const Stack = createStackNavigator();
 
+// Stack navigator used in the case that user is not logged in.
+// Allows users to access signin and signup screens only.
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
@@ -41,6 +42,8 @@ const MainStackNavigator = () => {
   );
 };
 
+// Track stack navigator allow user to move from the track list to track details screens.
+// This is nested inside of the TabNav.
 const TrackStackNavigator = () => {
   return (
     <Stack.Navigator>
@@ -50,6 +53,8 @@ const TrackStackNavigator = () => {
   );
 };
 
+// Main screen that will be shown if user is logged in.
+// This gives access to track list and account details.
 const TabNav = () => {
   return (
     <Tab.Navigator>

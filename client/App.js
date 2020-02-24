@@ -20,8 +20,16 @@ const Stack = createStackNavigator();
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Signin" component={SigninScreen} />
-      <Stack.Screen name="Signup" component={SignupScreen} />
+      <Stack.Screen
+        name="Signin"
+        component={SigninScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={SignupScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -36,7 +44,7 @@ const MainStackNavigator = () => {
       {isLoggedIn ? (
         <Stack.Screen name="TabNav" component={TabNav} />
       ) : (
-        <Stack.Screen name="Please Sign In" component={AuthStackNavigator} />
+        <Stack.Screen name="AuthStack" component={AuthStackNavigator} />
       )}
     </Stack.Navigator>
   );

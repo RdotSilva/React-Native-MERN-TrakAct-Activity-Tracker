@@ -11,6 +11,7 @@ import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Provider as AuthProvider } from "./src/context/authContext";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -75,9 +76,11 @@ const TabNav = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <MainStackNavigator />
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <MainStackNavigator />
+      </NavigationContainer>
+    </AuthProvider>
   );
 };
 

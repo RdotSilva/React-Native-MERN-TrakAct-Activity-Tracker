@@ -11,6 +11,10 @@ const signUp = dispatch => {
   return ({ email, password }) => {};
 };
 
+const signIn = dispatch => {
+  return ({ email, password }) => {};
+};
+
 export const { Provider, Context } = createDataContext(
   authReducer,
   {},

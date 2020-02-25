@@ -11,7 +11,10 @@ const authReducer = (state, action) => {
 const signUp = dispatch => {
   return async ({ email, password }) => {
     try {
-      const response = await trackerApi.post("/signup", { email, password });
+      const response = await trackerApi.post("/api/v1/auth/signup", {
+        email,
+        password
+      });
       console.log(response.data);
     } catch (err) {
       console.log(err.message);

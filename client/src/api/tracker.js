@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Ngrok URL must be updated every 8 hours.
 export default axios.create({
-  baseURL: "http://51009ce4.ngrok.io"
+  baseURL: "http://b19f7548.ngrok.io"
 });

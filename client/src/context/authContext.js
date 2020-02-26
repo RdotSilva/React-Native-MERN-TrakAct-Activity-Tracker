@@ -11,6 +11,8 @@ const authReducer = (state, action) => {
         ...state,
         errorMessage: payload
       };
+    case "SIGN_UP":
+      return { errorMessage: "", token: payload };
     default:
       return state;
   }

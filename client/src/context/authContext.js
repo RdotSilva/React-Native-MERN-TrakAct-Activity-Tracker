@@ -24,6 +24,7 @@ const signUp = dispatch => {
         password
       });
       await AsyncStorage.setItem("token", response.data.token);
+      dispatch({ type: "SIGN_UP", payload: response.data.token });
     } catch (err) {
       dispatch({
         type: "ADD_ERROR",

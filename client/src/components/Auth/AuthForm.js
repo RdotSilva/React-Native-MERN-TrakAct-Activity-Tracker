@@ -6,9 +6,36 @@ const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <>
+      <Spacer>
+        <Text h3>Sign Up</Text>
+      </Spacer>
+      <Spacer>
+        <Input
+          label="Email"
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+      </Spacer>
+      <Spacer>
+        <Input
+          label="Password"
+          value={password}
+          onChangeText={setPassword}
+          autoCapitalize="none"
+          autoCorrect={false}
+          secureTextEntry
+        />
+      </Spacer>
+      {state.errorMessage ? (
+        <Text style={styles.errorMessage}>{state.errorMessage}</Text>
+      ) : null}
+      <Spacer>
+        <Button title="Sign Up" onPress={() => signUp({ email, password })} />
+      </Spacer>
+    </>
   );
 };
 

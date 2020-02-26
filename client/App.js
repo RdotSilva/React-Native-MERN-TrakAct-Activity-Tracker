@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AccountScreen from "./src/screens/AccountScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 import SigninScreen from "./src/screens/SigninScreen";
 import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
-import TrackDetailScreen from "./src/screens/TrackDetailScreen";}
+import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 
 // React navigation
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+// Context
 import { Provider as AuthProvider } from "./src/context/authContext";
-import { setNavigator } from './src/navigation/navigationRef';
+import { Context as AuthContext } from "./src/context/authContext";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -40,10 +42,12 @@ const AuthStackNavigator = () => {
 // If user logged in then bring them to the main track details screen (which is a tab navigator).
 // If not logged in bring them to the "auth" stack navigator with access to sign in and sign up.
 const MainStackNavigator = () => {
+  const { state, signUp } = useContext(AuthContext);
   const isLoggedIn = false;
+
   return (
     <Stack.Navigator>
-      {isLoggedIn ? (
+      {state.token !== null ? (
         <Stack.Screen name="TabNav" component={TabNav} />
       ) : (
         <Stack.Screen name="AuthStack" component={AuthStackNavigator} />
@@ -79,7 +83,7 @@ const App = () => {
   return (
     <AuthProvider>
       <NavigationContainer>
-        <MainStackNavigator ref={(navigator) => {setNavigator(navigator)}}/>
+        <MainStackNavigator />
       </NavigationContainer>
     </AuthProvider>
   );

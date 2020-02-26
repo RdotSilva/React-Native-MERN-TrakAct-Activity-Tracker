@@ -5,13 +5,14 @@ import SignupScreen from "./src/screens/SignupScreen";
 import SigninScreen from "./src/screens/SigninScreen";
 import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
-import TrackDetailScreen from "./src/screens/TrackDetailScreen";
+import TrackDetailScreen from "./src/screens/TrackDetailScreen";}
 
 // React navigation
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider as AuthProvider } from "./src/context/authContext";
+import { setNavigator } from './src/navigation/navigationRef';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -78,7 +79,7 @@ const App = () => {
   return (
     <AuthProvider>
       <NavigationContainer>
-        <MainStackNavigator />
+        <MainStackNavigator ref={(navigator) => {setNavigator(navigator)}}/>
       </NavigationContainer>
     </AuthProvider>
   );

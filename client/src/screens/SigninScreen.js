@@ -8,9 +8,9 @@ const SigninScreen = ({ navigation }) => {
   const { state, signIn } = useContext(AuthContext);
 
   return (
-    <View>
+    <View style={styles.container}>
       <AuthForm
-        headerText="Sign In to TrakAct"
+        headerText="Sign In To TrakAct"
         errorMessage={state.errorMessage}
         submitButtonText="Sign In"
         onSubmit={({ email, password }) => signIn({ email, password })}
@@ -23,6 +23,12 @@ const SigninScreen = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    marginBottom: 250
+  }
+});
 
 export default SigninScreen;

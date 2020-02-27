@@ -1,11 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { Context as AuthContext } from "../context/authContext";
 import AuthForm from "./../components/Auth/AuthForm";
 import NavLink from "../components/Auth/NavLink";
 
 const SigninScreen = ({ navigation }) => {
-  const { state, signIn } = useContext(AuthContext);
+  const { state, signIn, clearErrorMessage } = useContext(AuthContext);
+
+  // This clears the error message when you navigate away from the component
+  useEffect(() => {
+    const clear = navigation.addListener("blur", () => {
+      clearErrorMessage();
+    });
+
+    return clear;
+  }, [navigation]);
 
   return (
     <View style={styles.container}>

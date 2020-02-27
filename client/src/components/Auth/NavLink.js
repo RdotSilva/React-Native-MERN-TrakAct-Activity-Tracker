@@ -9,12 +9,16 @@ const NavLink = ({ linkText, routeNavName }) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate(routeNavName)}>
       <Spacer>
-        <Text style={styles.signInLink}>{linkText}</Text>
+        <Text style={styles.link}>{linkText}</Text>
       </Spacer>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  link: {
+    color: "blue"
+  }
+});
 
 export default NavLink;

@@ -33,8 +33,20 @@ const signUp = dispatch => async ({ email, password }) => {
     });
   }
 };
-const signIn = dispatch => {
-  return ({ email, password }) => {};
+const signIn = dispatch => async ({ email, password }) => {
+  try {
+    const response = await trackerApi.post("/api/v1/auth/signin", {
+      email,
+      password
+    });
+    await AsyncStorage.setItem("token", response.data.token);
+    dispatch({ type: "SIGN_IN", payload: response.data.token });
+  } catch (err) {
+    dispatch({
+      type: "ADD_ERROR",
+      payload: "Something went wrong with sign in"
+    });
+  }
 };
 
 const signOut = dispatch => {

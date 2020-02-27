@@ -18,6 +18,12 @@ const authReducer = (state, action) => {
   }
 };
 
+const clearErrorMessage = dispatch => () => {
+  dispatch({
+    type: "CLEAR_ERROR_MESSAGE"
+  });
+};
+
 const signUp = dispatch => async ({ email, password }) => {
   try {
     const response = await trackerApi.post("/api/v1/auth/signup", {

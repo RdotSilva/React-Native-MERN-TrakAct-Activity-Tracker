@@ -8,7 +8,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
   return (
     <>
       <Spacer>
-        <Text h3>Sign Up</Text>
+        <Text h3>{headerText}</Text>
       </Spacer>
       <Spacer>
         <Input
@@ -29,11 +29,14 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
           secureTextEntry
         />
       </Spacer>
-      {state.errorMessage ? (
-        <Text style={styles.errorMessage}>{state.errorMessage}</Text>
+      {errorMessage ? (
+        <Text style={styles.errorMessage}>{errorMessage}</Text>
       ) : null}
       <Spacer>
-        <Button title="Sign Up" onPress={() => signUp({ email, password })} />
+        <Button
+          title={submitButtonText}
+          onPress={onSubmit({ email, password })}
+        />
       </Spacer>
     </>
   );

@@ -11,7 +11,7 @@ const authReducer = (state, action) => {
         ...state,
         errorMessage: payload
       };
-    case "SIGN_UP":
+    case "SIGN_IN":
       return { errorMessage: "", token: payload };
     default:
       return state;
@@ -25,7 +25,7 @@ const signUp = dispatch => async ({ email, password }) => {
       password
     });
     await AsyncStorage.setItem("token", response.data.token);
-    dispatch({ type: "SIGN_UP", payload: response.data.token });
+    dispatch({ type: "SIGN_IN", payload: response.data.token });
   } catch (err) {
     dispatch({
       type: "ADD_ERROR",

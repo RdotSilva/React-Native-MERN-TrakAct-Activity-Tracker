@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Text, Input, Button } from "react-native-elements";
+import Spacer from "./../Spacer";
 
 const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
   const [email, setEmail] = useState("");
@@ -41,5 +42,13 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  errorMessage: {
+    fontSize: 16,
+    color: "red",
+    marginLeft: 25
+  }
+});
 
 export default AuthForm;

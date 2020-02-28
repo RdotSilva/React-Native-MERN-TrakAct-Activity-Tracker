@@ -35,14 +35,22 @@ npm install
 1. Start the Expo simulator
 
 ```
+cd client
+
+```
+
+```
 expo start
+
 ```
 
 or to start Expo simulator and open in the appropriate emulator
 
 ```
+
 expo start --ios
 expo start --android
+
 ```
 
 ## Built With
@@ -57,3 +65,7 @@ expo start --android
 ## Screenshots
 
 ![Coming Soon](https://upload.wikimedia.org/wikipedia/commons/8/80/Comingsoon.png "Coming Soon")
+
+```
+
+```

@@ -5,9 +5,7 @@ import AuthForm from "./../components/Auth/AuthForm";
 import NavLink from "../components/Auth/NavLink";
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signUp, clearErrorMessage, tryLocalSignIn } = useContext(
-    AuthContext
-  );
+  const { state, signUp, clearErrorMessage } = useContext(AuthContext);
 
   // This clears the error message when you navigate away from the component
   useEffect(() => {
@@ -17,10 +15,6 @@ const SignupScreen = ({ navigation }) => {
 
     return clear;
   }, [navigation]);
-
-  useEffect(() => {
-    tryLocalSignIn();
-  }, []);
 
   return (
     <View style={styles.container}>

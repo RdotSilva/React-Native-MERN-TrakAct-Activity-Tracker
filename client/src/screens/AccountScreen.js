@@ -8,7 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const AccountScreen = () => {
   const { signOut } = useContext(AuthContext);
   return (
-    <SafeAreaView>
+    <SafeAreaView forceInset={{ top: "always" }}>
       <Text>AccountScreen</Text>
       <Spacer>
         <Button title="Sign Out" onPress={signOut} />

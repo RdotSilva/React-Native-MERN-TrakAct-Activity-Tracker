@@ -6,6 +6,7 @@ import SigninScreen from "./src/screens/SigninScreen";
 import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
+import SplashScreen from "./src/screens/SplashScreen";
 
 // React navigation
 import { NavigationContainer, StackActions } from "@react-navigation/native";
@@ -24,6 +25,11 @@ const Stack = createStackNavigator();
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="Signin"
         component={SigninScreen}

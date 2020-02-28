@@ -61,7 +61,11 @@ const MainStackNavigator = () => {
   return (
     <Stack.Navigator>
       {state.token !== null ? (
-        <Stack.Screen name="TabNav" component={TabNav} />
+        <Stack.Screen
+          name="TabNav"
+          component={TabNav}
+          options={{ headerShown: false }}
+        />
       ) : (
         <Stack.Screen name="AuthStack" component={AuthStackNavigator} />
       )}
@@ -74,8 +78,16 @@ const MainStackNavigator = () => {
 const TrackStackNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="TrackList" component={TrackListScreen} />
-      <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
+      <Stack.Screen
+        name="TrackList"
+        component={TrackListScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="TrackDetail"
+        component={TrackDetailScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

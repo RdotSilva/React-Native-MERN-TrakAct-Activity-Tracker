@@ -9,6 +9,9 @@ const AccountScreen = () => {
   return (
     <>
       <Text>AccountScreen</Text>
+      <Spacer>
+        <Button title="Sign Out" onPress={signOut} />
+      </Spacer>
     </>
   );
 };

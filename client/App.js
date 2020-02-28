@@ -7,6 +7,7 @@ import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 import SplashScreen from "./src/screens/SplashScreen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 // React navigation
 import { NavigationContainer, StackActions } from "@react-navigation/native";
@@ -93,11 +94,13 @@ const TabNav = () => {
 
 const App = () => {
   return (
-    <AuthProvider>
-      <NavigationContainer>
-        <MainStackNavigator />
-      </NavigationContainer>
-    </AuthProvider>
+    <SafeAreaProvider>
+      <AuthProvider>
+        <NavigationContainer>
+          <MainStackNavigator />
+        </NavigationContainer>
+      </AuthProvider>
+    </SafeAreaProvider>
   );
 };
 

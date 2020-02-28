@@ -65,8 +65,9 @@ const signIn = dispatch => async ({ email, password }) => {
   }
 };
 
-const signOut = dispatch => {
-  return () => {};
+const signOut = dispatch => () => {
+  await AsyncStorage.removeItem("token");
+  dispatch({type: "SIGN_OUT"})
 };
 
 export const { Provider, Context } = createDataContext(

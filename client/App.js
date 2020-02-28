@@ -23,23 +23,29 @@ const Stack = createStackNavigator();
 // Stack navigator used in the case that user is not logged in.
 // Allows users to access signin and signup screens only.
 const AuthStackNavigator = () => {
+  const { state } = useContext(AuthContext);
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="SplashScreen"
-        component={SplashScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Signin"
-        component={SigninScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Signup"
-        component={SignupScreen}
-        options={{ headerShown: false }}
-      />
+      {state.token !== null ? (
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+      ) : (
+        <>
+          <Stack.Screen
+            name="Signin"
+            component={SigninScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Signup"
+            component={SignupScreen}
+            options={{ headerShown: false }}
+          />
+        </>
+      )}
     </Stack.Navigator>
   );
 };

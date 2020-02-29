@@ -6,7 +6,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { requestPermissionsAsync } from "expo-location";
 
 const TrackCreateScreen = () => {
-  const [err, setErr] = useState(null);
+  const [error, setError] = useState(null);
+
+  const startWatching = async () => {
+    try {
+      await requestPermissionsAsync();
+    } catch (err) {
+      setError(err);
+    }
+  };
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>

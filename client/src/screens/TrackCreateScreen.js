@@ -3,7 +3,11 @@ import { StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
 import Map from "./../components/Track/Map";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { requestPermissionsAsync } from "expo-location";
+import {
+  requestPermissionsAsync,
+  watchPositionAsync,
+  Accuracy
+} from "expo-location";
 import "../utils/_mockLocation";
 
 const TrackCreateScreen = () => {
@@ -14,7 +18,16 @@ const TrackCreateScreen = () => {
     try {
       const { status } = await requestPermissionsAsync();
       if (status === "granted") {
-        // TODO location logic
+        await watchPositionAsync(
+          {
+            accuracy: Accuracy.BestForNavigation,
+            timeInterval: 1000,
+            distanceInterval: 10
+          },
+          location => {
+            console.log(location);
+          }
+        );
       } else {
         throw new Error("Location permission not granted");
       }

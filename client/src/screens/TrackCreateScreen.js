@@ -8,13 +8,23 @@ import { requestPermissionsAsync } from "expo-location";
 const TrackCreateScreen = () => {
   const [error, setError] = useState(null);
 
+  // This will request location access permission
   const startWatching = async () => {
     try {
-      await requestPermissionsAsync();
+      const { status } = await requestPermissionsAsync();
+      if (status === "granted") {
+        // TODO location logic
+      } else {
+        throw new Error("Location permission not granted");
+      }
     } catch (err) {
       setError(err);
     }
   };
+
+  useEffect(() => {
+    startWatching();
+  }, []);
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>

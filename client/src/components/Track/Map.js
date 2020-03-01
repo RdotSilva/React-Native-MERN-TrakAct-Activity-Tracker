@@ -4,6 +4,7 @@ import MapView, { Polyline } from "react-native-maps";
 import { Context as LocationContext } from "../../context/locationContext";
 
 const Map = () => {
+  // Get current location coords from state
   const {
     state: { currentLocation }
   } = useContext(LocationContext);
@@ -16,8 +17,7 @@ const Map = () => {
     <MapView
       style={styles.map}
       initialRegion={{
-        latitude: 41.8164572,
-        longitude: -71.4325848,
+        ...currentLocation.coords,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01
       }}

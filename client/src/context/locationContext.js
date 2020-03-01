@@ -14,3 +14,13 @@ const startRecording = dispatch => () => {};
 const stopRecording = dispatch => () => {};
 
 const addLocation = dispatch => () => {};
+
+export const { Context, Provider } = createDataContext(
+  locationReducer,
+  {
+    startRecording,
+    stopRecording,
+    addLocation
+  },
+  { recording: false, locations: [], currentLocation: null }
+);

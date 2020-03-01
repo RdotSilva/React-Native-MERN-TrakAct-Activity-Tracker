@@ -4,6 +4,8 @@ const locationReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case "ADD_CURRENT_LOCATION":
+      return { ...state, currentLocation: payload };
     default:
       return state;
   }

@@ -16,6 +16,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Context
 import { Provider as AuthProvider } from "./src/context/authContext";
+import { Provider as LocationProvider } from "./src/context/locationContext";
 import { Context as AuthContext } from "./src/context/authContext";
 
 const Tab = createBottomTabNavigator();
@@ -107,11 +108,13 @@ const TabNav = () => {
 const App = () => {
   return (
     <SafeAreaProvider>
-      <AuthProvider>
-        <NavigationContainer>
-          <MainStackNavigator />
-        </NavigationContainer>
-      </AuthProvider>
+      <LocationProvider>
+        <AuthProvider>
+          <NavigationContainer>
+            <MainStackNavigator />
+          </NavigationContainer>
+        </AuthProvider>
+      </LocationProvider>
     </SafeAreaProvider>
   );
 };

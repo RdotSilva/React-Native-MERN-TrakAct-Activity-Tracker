@@ -8,3 +8,5 @@ const locationReducer = (state, action) => {
       return state;
   }
 };
+
+const startRecording = dispatch => () => {};

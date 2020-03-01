@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import MapView, { Polyline } from "react-native-maps";
+import { Context as LocationContext } from "../../context/locationContext";
 
 const Map = () => {
+  const { state } = useContext(LocationContext);
+
+  console.log(state);
+
   return (
     <MapView
       style={styles.map}

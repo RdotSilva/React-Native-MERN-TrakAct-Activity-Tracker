@@ -5,12 +5,12 @@ import {
   watchPositionAsync
 } from "expo-location";
 
-export default callback => {
+export default (shouldTrack, callback) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
     startWatching();
-  }, []);
+  }, [shouldTrack]);
 
   // This will request location access permission
   const startWatching = async () => {

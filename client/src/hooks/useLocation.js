@@ -5,7 +5,7 @@ import {
   watchPositionAsync
 } from "expo-location";
 
-export default () => {
+export default callback => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,9 +23,7 @@ export default () => {
             timeInterval: 1000,
             distanceInterval: 10
           },
-          location => {
-            addLocation(location);
-          }
+          callback
         );
       } else {
         throw new Error("Location permission not granted");
@@ -34,4 +32,6 @@ export default () => {
       setError(err);
     }
   };
+
+  return [error];
 };

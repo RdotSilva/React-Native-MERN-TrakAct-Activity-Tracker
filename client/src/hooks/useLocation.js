@@ -17,7 +17,7 @@ export default callback => {
     try {
       const { status } = await requestPermissionsAsync();
       if (status === "granted") {
-        await watchPositionAsync(
+        const subscriber = await watchPositionAsync(
           {
             accuracy: Accuracy.BestForNavigation,
             timeInterval: 1000,

@@ -21,11 +21,12 @@ const Map = () => {
         latitudeDelta: 0.01,
         longitudeDelta: 0.01
       }}
+      // showsUserLocation={true} try this instead of using the Circle below
     >
       <Circle
         center={currentLocation.coords}
         radius={30}
-        strokeColor="rgba(158, 158, 255, 1.0"
+        strokeColor="rgba(158, 158, 255, 1.0)"
         fillColor="rgba(158, 158, 255, 0.3)"
       />
     </MapView>

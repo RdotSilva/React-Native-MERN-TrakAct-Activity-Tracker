@@ -16,6 +16,7 @@ const startRecording = dispatch => () => {};
 const stopRecording = dispatch => () => {};
 
 const addLocation = dispatch => location => {
+  console.log("Testing: Location Added");
   dispatch({ type: "ADD_CURRENT_LOCATION", payload: location });
 };
 

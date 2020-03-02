@@ -8,6 +8,10 @@ import {
 export default () => {
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    startWatching();
+  }, []);
+
   // This will request location access permission
   const startWatching = async () => {
     try {

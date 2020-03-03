@@ -11,7 +11,9 @@ const locationReducer = (state, action) => {
   }
 };
 
-const startRecording = dispatch => () => {};
+const startRecording = dispatch => () => {
+  dispatch({ type: "START_RECORDING" });
+};
 
 const stopRecording = dispatch => () => {};
 

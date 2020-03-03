@@ -7,6 +7,7 @@ import { withNavigationFocus } from "@react-navigation/compat";
 import "../utils/_mockLocation";
 import { Context as LocationContext } from "../context/locationContext";
 import useLocation from "../hooks/useLocation";
+import TrackForm from "./../components/Track/TrackForm";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { addLocation } = useContext(LocationContext);
@@ -19,6 +20,7 @@ const TrackCreateScreen = ({ isFocused }) => {
       <Text h2>Create a Track</Text>
       <Map />
       {error ? <Text>Please enable location services</Text> : null}
+      <TrackForm />
     </SafeAreaView>
   );
 };

@@ -12,6 +12,8 @@ const locationReducer = (state, action) => {
       return { ...state, recording: false };
     case "ADD_LOCATION":
       return { ...state, locations: [...state.locations, payload] };
+    case "CHANGE_NAME":
+      return { ...state, name: payload };
     default:
       return state;
   }

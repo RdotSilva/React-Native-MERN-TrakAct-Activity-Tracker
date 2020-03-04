@@ -40,6 +40,9 @@ const TrackForm = () => {
             buttonStyle={{
               backgroundColor: "green"
             }}
+            containerStyle={{
+              alignItems: "center"
+            }}
             title="Start Recording"
             onPress={startRecording}
           />

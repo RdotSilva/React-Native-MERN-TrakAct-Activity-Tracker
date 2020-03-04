@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Input, Button } from "react-native-elements";
+import { StyleSheet } from "react-native";
 import Spacer from "./../Spacer";
 import { Context as LocationContext } from "../../context/locationContext";
 
@@ -24,7 +25,13 @@ const TrackForm = () => {
       </Spacer>
       <Spacer>
         {recording ? (
-          <Button title="Stop Recording" onPress={stopRecording} />
+          <Button
+            buttonStyle={{
+              backgroundColor: "red"
+            }}
+            title="Stop Recording"
+            onPress={stopRecording}
+          />
         ) : (
           <Button title="Start Recording" onPress={startRecording} />
         )}
@@ -32,5 +39,7 @@ const TrackForm = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default TrackForm;

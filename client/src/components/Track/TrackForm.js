@@ -4,13 +4,20 @@ import Spacer from "./../Spacer";
 import { Context as LocationContext } from "../../context/locationContext";
 
 const TrackForm = () => {
-  const { startRecording, stopRecording, changeName } = useContext(
-    LocationContext
-  );
+  const {
+    state: { name, recording },
+    startRecording,
+    stopRecording,
+    changeName
+  } = useContext(LocationContext);
   return (
     <>
       <Spacer>
-        <Input placeholder="Enter name" />
+        <Input
+          value={name}
+          onChangeText={changeName}
+          placeholder="Enter name"
+        />
       </Spacer>
       <Spacer>
         <Button title="Start Recording" />

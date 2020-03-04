@@ -16,6 +16,13 @@ export default (shouldTrack, callback) => {
       subscriber.remove();
       setSubscriber(null);
     }
+
+    // Clean up method
+    return () => {
+      if (subscriber) {
+        subscriber.remove();
+      }
+    };
   }, [shouldTrack]);
 
   // This will request location access permission

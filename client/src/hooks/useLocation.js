@@ -7,7 +7,6 @@ import {
 
 export default (shouldTrack, callback) => {
   const [error, setError] = useState(null);
-  const [subscriber, setSubscriber] = useState(null);
 
   useEffect(() => {
     // This will request location access permission

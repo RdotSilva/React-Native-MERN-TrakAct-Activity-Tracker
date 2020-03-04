@@ -29,7 +29,9 @@ const TrackCreateScreen = ({ isFocused }) => {
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
-      <Text h2>Create a Track</Text>
+      <Text style={styles.title} h2>
+        Create a Track
+      </Text>
       <Map />
       {error ? <Text>Please enable location services</Text> : null}
       <TrackForm />
@@ -37,6 +39,10 @@ const TrackCreateScreen = ({ isFocused }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    alignSelf: "center"
+  }
+});
 
 export default withNavigationFocus(TrackCreateScreen);

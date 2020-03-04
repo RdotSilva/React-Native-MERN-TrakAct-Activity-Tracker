@@ -20,7 +20,7 @@ const TrackForm = () => {
         <Input
           value={name}
           onChangeText={changeName}
-          placeholder="Enter name"
+          placeholder="Enter Activity Description"
         />
       </Spacer>
       <Spacer>

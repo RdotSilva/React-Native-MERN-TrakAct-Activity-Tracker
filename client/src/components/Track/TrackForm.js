@@ -36,7 +36,13 @@ const TrackForm = () => {
             onPress={stopRecording}
           />
         ) : (
-          <Button title="Start Recording" onPress={startRecording} />
+          <Button
+            buttonStyle={{
+              backgroundColor: "green"
+            }}
+            title="Start Recording"
+            onPress={startRecording}
+          />
         )}
       </Spacer>
     </>

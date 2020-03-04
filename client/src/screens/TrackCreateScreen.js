@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import { StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
 import Map from "./../components/Track/Map";
@@ -11,9 +11,15 @@ import TrackForm from "./../components/Track/TrackForm";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { state, addLocation } = useContext(LocationContext);
-  const [error] = useLocation(isFocused, location => {
-    addLocation(location, state.recording);
-  });
+
+  const callback = useCallback(
+    location => {
+      addLocation(location, state.recording);
+    },
+    [state.recording]
+  );
+
+  const [error] = useLocation(isFocused, callback);
 
   console.log(isFocused);
 

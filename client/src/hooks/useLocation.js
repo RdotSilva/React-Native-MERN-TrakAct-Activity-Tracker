@@ -23,7 +23,6 @@ export default (shouldTrack, callback) => {
             },
             callback
           );
-          setSubscriber(sub);
         } else {
           throw new Error("Location permission not granted");
         }
@@ -35,8 +34,10 @@ export default (shouldTrack, callback) => {
     if (shouldTrack) {
       startWatching();
     } else {
-      subscriber.remove();
-      setSubscriber(null);
+      if (subscriber) {
+        subscriber.remove();
+      }
+      subscriber = null;
     }
 
     // Clean up method

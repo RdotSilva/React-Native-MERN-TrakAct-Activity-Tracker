@@ -10,6 +10,28 @@ export default (shouldTrack, callback) => {
   const [subscriber, setSubscriber] = useState(null);
 
   useEffect(() => {
+    // This will request location access permission
+    const startWatching = async () => {
+      try {
+        const { status } = await requestPermissionsAsync();
+        if (status === "granted") {
+          const sub = await watchPositionAsync(
+            {
+              accuracy: Accuracy.BestForNavigation,
+              timeInterval: 1000,
+              distanceInterval: 10
+            },
+            callback
+          );
+          setSubscriber(sub);
+        } else {
+          throw new Error("Location permission not granted");
+        }
+      } catch (err) {
+        setError(err);
+      }
+    };
+
     if (shouldTrack) {
       startWatching();
     } else {
@@ -24,28 +46,6 @@ export default (shouldTrack, callback) => {
       }
     };
   }, [shouldTrack]);
-
-  // This will request location access permission
-  const startWatching = async () => {
-    try {
-      const { status } = await requestPermissionsAsync();
-      if (status === "granted") {
-        const sub = await watchPositionAsync(
-          {
-            accuracy: Accuracy.BestForNavigation,
-            timeInterval: 1000,
-            distanceInterval: 10
-          },
-          callback
-        );
-        setSubscriber(sub);
-      } else {
-        throw new Error("Location permission not granted");
-      }
-    } catch (err) {
-      setError(err);
-    }
-  };
 
   return [error];
 };

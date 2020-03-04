@@ -29,6 +29,9 @@ const TrackForm = () => {
             buttonStyle={{
               backgroundColor: "red"
             }}
+            containerStyle={{
+              alignItems: "center"
+            }}
             title="Stop Recording"
             onPress={stopRecording}
           />

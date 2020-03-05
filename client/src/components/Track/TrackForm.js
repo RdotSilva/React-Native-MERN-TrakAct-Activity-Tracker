@@ -51,6 +51,9 @@ const TrackForm = () => {
               buttonStyle={{
                 backgroundColor: "blue"
               }}
+              containerStyle={{
+                alignItems: "center"
+              }}
               title="Save Recording"
             />
           ) : null}

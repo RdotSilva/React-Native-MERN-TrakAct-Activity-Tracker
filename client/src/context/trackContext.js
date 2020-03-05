@@ -9,3 +9,4 @@ const trackReducer = (state, action) => {
 };
 
 const fetchTracks = dispatch => () => {};
+const createTracks = dispatch => () => {};

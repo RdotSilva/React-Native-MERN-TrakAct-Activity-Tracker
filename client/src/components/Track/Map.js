@@ -6,12 +6,14 @@ import { Context as LocationContext } from "../../context/locationContext";
 const Map = () => {
   // Get current location coords from state
   const {
-    state: { currentLocation }
+    state: { currentLocation, locations }
   } = useContext(LocationContext);
 
   if (!currentLocation) {
     return <ActivityIndicator size="large" style={{ marginTop: 200 }} />;
   }
+
+  console.log(locations);
 
   return (
     <MapView

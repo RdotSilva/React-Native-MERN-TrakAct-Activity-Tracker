@@ -23,7 +23,7 @@ const TrackCreateScreen = ({ isFocused }) => {
   );
 
   // Custom hook to track location
-  const [error] = useLocation(isFocused, callback);
+  const [error] = useLocation(isFocused || state.recording, callback);
 
   console.log(isFocused);
 

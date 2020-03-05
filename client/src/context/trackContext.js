@@ -7,3 +7,5 @@ const trackReducer = (state, action) => {
       return state;
   }
 };
+
+const fetchTracks = dispatch => () => {};

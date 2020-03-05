@@ -10,20 +10,23 @@ import useLocation from "../hooks/useLocation";
 import TrackForm from "./../components/Track/TrackForm";
 
 const TrackCreateScreen = ({ isFocused }) => {
-  const { state, addLocation } = useContext(LocationContext);
+  const {
+    state: { recording },
+    addLocation
+  } = useContext(LocationContext);
 
   // Rebuild callback every time state.recording changes
   // Returns same function (in memory) if the value doesn't change
   // If value does change it returns a the new callback function
   const callback = useCallback(
     location => {
-      addLocation(location, state.recording);
+      addLocation(location, recording);
     },
-    [state.recording]
+    [recording]
   );
 
   // Custom hook to track location
-  const [error] = useLocation(isFocused || state.recording, callback);
+  const [error] = useLocation(isFocused || recording, callback);
 
   console.log(isFocused);
 

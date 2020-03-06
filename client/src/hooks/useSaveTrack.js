@@ -4,4 +4,8 @@ import { Context as LocationContext } from "../context/locationContext";
 
 export default () => {
   const { createTrack } = useContext(TrackContext);
+
+  const {
+    state: { locations, name }
+  } = useContext(LocationContext);
 };

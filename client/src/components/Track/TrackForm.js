@@ -59,6 +59,7 @@ const TrackForm = () => {
                 alignItems: "center"
               }}
               title="Save Recording"
+              onPress={saveTrack}
             />
           ) : null}
         </Spacer>

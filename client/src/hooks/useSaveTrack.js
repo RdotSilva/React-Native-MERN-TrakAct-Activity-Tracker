@@ -12,4 +12,6 @@ export default () => {
   const saveTrack = () => {
     createTrack(name, locations);
   };
+
+  return [saveTrack];
 };

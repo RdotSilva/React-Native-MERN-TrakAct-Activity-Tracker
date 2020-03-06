@@ -6,4 +6,8 @@ const instance = axios.create({
   baseURL: "http://2d8143af.ngrok.io"
 });
 
+instance.interceptors.request.use(error => {
+  return Promise.reject(error);
+});
+
 export default instance;

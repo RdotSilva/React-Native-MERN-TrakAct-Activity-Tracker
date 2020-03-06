@@ -6,8 +6,19 @@ const instance = axios.create({
   baseURL: "http://2d8143af.ngrok.io"
 });
 
-instance.interceptors.request.use(error => {
-  return Promise.reject(error);
-});
+instance.interceptors.request.use(
+  async config => {
+    const token = await AsyncStorage.getItem("token");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+
+  error => {
+    return Promise.reject(error);
+  }
+);
 
 export default instance;

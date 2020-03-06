@@ -6,7 +6,9 @@ const instance = axios.create({
   baseURL: "http://2d8143af.ngrok.io"
 });
 
+// Automatically set the authorization header if we have a token in async storage
 instance.interceptors.request.use(
+  // Called automatically each time we make a request
   async config => {
     const token = await AsyncStorage.getItem("token");
 
@@ -15,7 +17,7 @@ instance.interceptors.request.use(
     }
     return config;
   },
-
+  // Called when there is an error
   error => {
     return Promise.reject(error);
   }

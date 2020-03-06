@@ -13,6 +13,10 @@ const AccountScreen = () => {
       <Spacer>
         <Button title="Sign Out" onPress={signOut} />
       </Spacer>
+      <Text>
+        WARNING: Signing out before saving a track will result in the track
+        being lost forever!
+      </Text>
     </SafeAreaView>
   );
 };

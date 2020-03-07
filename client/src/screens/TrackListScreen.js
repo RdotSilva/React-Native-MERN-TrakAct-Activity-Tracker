@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { ListItem } from "react-native-elements";
 import { Context as TrackContext } from "../context/trackContext";
 
 const TrackListScreen = ({ navigation }) => {
@@ -15,13 +16,9 @@ const TrackListScreen = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <View>
+    <>
       <Text>TrackListScreen</Text>
-      <Button
-        title="Go to Track Detail"
-        onPress={() => navigation.navigate("TrackDetail")}
-      />
-    </View>
+    </>
   );
 };
 

@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
+import { Context as TrackContext } from "../context/trackContext";
 
 const TrackListScreen = ({ navigation }) => {
+  const { fetchTracks } = useContext(TrackContext);
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", () => {});
 

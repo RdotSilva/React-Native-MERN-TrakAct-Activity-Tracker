@@ -6,7 +6,7 @@ const tenMetersWithDegrees = 0.0001;
 // Fake location data to be sent to fake emit
 const getLocation = increment => {
   return {
-    timestamp: 1000000,
+    timestamp: 100000,
     coords: {
       speed: 0,
       heading: 0,

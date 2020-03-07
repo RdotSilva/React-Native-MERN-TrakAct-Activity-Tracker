@@ -38,7 +38,6 @@ const reset = dispatch => () => {
 };
 
 const addLocation = dispatch => (location, recording) => {
-  console.log("Testing: Location Added");
   dispatch({ type: "ADD_CURRENT_LOCATION", payload: location });
 
   if (recording) {

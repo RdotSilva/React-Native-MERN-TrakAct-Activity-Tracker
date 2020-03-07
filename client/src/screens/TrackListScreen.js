@@ -21,7 +21,13 @@ const TrackListScreen = ({ navigation }) => {
       <FlatList
         data={state}
         keyExtractor={item => item._id}
-        renderItem={({ item }) => {}}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity>
+              <ListItem chevron title={item.name} />
+            </TouchableOpacity>
+          );
+        }}
       />
     </>
   );

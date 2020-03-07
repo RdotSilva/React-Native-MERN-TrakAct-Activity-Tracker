@@ -28,8 +28,6 @@ const TrackCreateScreen = ({ isFocused }) => {
   // Custom hook to track location
   const [error] = useLocation(isFocused || recording, callback);
 
-  console.log(recording);
-
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
       <Text style={styles.title} h2>

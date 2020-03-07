@@ -18,6 +18,11 @@ const TrackListScreen = ({ navigation }) => {
   return (
     <>
       <Text>TrackListScreen</Text>
+      <FlatList
+        data={state}
+        keyExtractor={item => item._id}
+        renderItem={({ item }) => {}}
+      />
     </>
   );
 };

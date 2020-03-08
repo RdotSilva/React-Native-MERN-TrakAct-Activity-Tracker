@@ -8,7 +8,14 @@ const TrackDetailScreen = ({ route, navigation }) => {
   // Get track ID from navigation params
   const { _id } = route.params;
 
-  return <View></View>;
+  // Search for the correct track based on _id
+  const track = state.find(singleTrack => singleTrack._id === _id);
+
+  return (
+    <View>
+      <Text>{track.name}</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({});

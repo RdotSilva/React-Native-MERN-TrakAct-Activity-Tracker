@@ -22,6 +22,7 @@ const TrackDetailScreen = ({ route, navigation }) => {
       <>
         <Text>{track.name}</Text>
         <MapView
+          style={styles.map}
           initialRegion={{
             longitudeDelta: 0.01,
             latitudeDelta: 0.01,
@@ -36,6 +37,10 @@ const TrackDetailScreen = ({ route, navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  map: {
+    height: 300
+  }
+});
 
 export default TrackDetailScreen;

@@ -88,7 +88,7 @@ const TrackStackNavigator = () => {
       <Stack.Screen
         name="TrackDetail"
         component={TrackDetailScreen}
-        options={{ headerShown: false }}
+        options={{ title: "Tracks" }}
       />
     </Stack.Navigator>
   );

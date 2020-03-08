@@ -4,7 +4,7 @@ import { Text } from "react-native-elements";
 import Map from "./../components/Track/Map";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { withNavigationFocus } from "@react-navigation/compat";
-import "../utils/_mockLocation";
+// import "../utils/_mockLocation";
 import { Context as LocationContext } from "../context/locationContext";
 import useLocation from "../hooks/useLocation";
 import TrackForm from "./../components/Track/TrackForm";

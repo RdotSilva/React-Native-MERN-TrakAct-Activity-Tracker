@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { Context as TrackContext } from "../context/trackContext";
 import { SafeAreaView } from "react-native-safe-area-context";
+import MapView, { Polyline } from "react-native-maps";
 
 const TrackDetailScreen = ({ route, navigation }) => {
   const { state } = useContext(TrackContext);
@@ -14,8 +15,13 @@ const TrackDetailScreen = ({ route, navigation }) => {
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
-      <Text>{track.name}</Text>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <>
+        <Text>{track.name}</Text>
+        <MapView>
+          <Polyline />
+        </MapView>
+        <Button title="Go back" onPress={() => navigation.goBack()} />
+      </>
     </SafeAreaView>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import { Context as TrackContext } from "../context/trackContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -15,6 +15,7 @@ const TrackDetailScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
       <Text>{track.name}</Text>
+      <Button title="Go back" onPress={() => navigation.goBack()} />
     </SafeAreaView>
   );
 };

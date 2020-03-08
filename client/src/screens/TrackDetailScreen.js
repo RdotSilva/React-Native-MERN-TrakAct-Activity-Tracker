@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Context as TrackContext } from "../context/trackContext";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const TrackDetailScreen = ({ route, navigation }) => {
   const { state } = useContext(TrackContext);
@@ -12,9 +13,9 @@ const TrackDetailScreen = ({ route, navigation }) => {
   const track = state.find(singleTrack => singleTrack._id === _id);
 
   return (
-    <View>
+    <SafeAreaView forceInset={{ top: "always" }}>
       <Text>{track.name}</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

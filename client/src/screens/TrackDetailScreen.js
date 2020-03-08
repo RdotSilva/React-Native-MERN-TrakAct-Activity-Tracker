@@ -20,7 +20,7 @@ const TrackDetailScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
       <>
-        <Text>{track.name}</Text>
+        <Text style={styles.title}>{track.name}</Text>
         <MapView
           style={styles.map}
           initialRegion={{
@@ -39,6 +39,11 @@ const TrackDetailScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   map: {
     height: 500
+  },
+  title: {
+    alignSelf: "center",
+    padding: 10,
+    fontSize: 25
   }
 });
 

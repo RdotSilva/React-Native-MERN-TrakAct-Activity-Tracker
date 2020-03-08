@@ -2,6 +2,18 @@
 
 React Native full stack mobile application that allows users to map & keep track of activities such as hiking, biking, running, or walking.
 
+## How to save an activity
+
+1. Sign up with email/password to get login access to the application.
+
+2. Navigate to the "Create" screen using the button navigation bar.
+
+3. Enter an activity description and press the "Start Recording" button to begin tracking your activity.
+
+4. Press "Stop Recording" when your activity is finished.
+
+5. Press "Save Recording" to save your activity to the database.
+
 ### Prerequisites
 
 You must first install Expo.

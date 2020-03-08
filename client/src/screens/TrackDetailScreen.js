@@ -18,7 +18,7 @@ const TrackDetailScreen = ({ route, navigation }) => {
       <>
         <Text>{track.name}</Text>
         <MapView>
-          <Polyline />
+          <Polyline coordinates={track.locations.map(loc => loc.coords)} />
         </MapView>
         <Button title="Go back" onPress={() => navigation.goBack()} />
       </>

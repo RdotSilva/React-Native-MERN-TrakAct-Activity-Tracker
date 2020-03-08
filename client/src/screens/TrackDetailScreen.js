@@ -21,7 +21,13 @@ const TrackDetailScreen = ({ route, navigation }) => {
     <SafeAreaView forceInset={{ top: "always" }}>
       <>
         <Text>{track.name}</Text>
-        <MapView>
+        <MapView
+          initialRegion={{
+            longitudeDelta: 0.01,
+            latitudeDelta: 0.01,
+            ...initialCoords
+          }}
+        >
           <Polyline coordinates={track.locations.map(loc => loc.coords)} />
         </MapView>
         <Button title="Go back" onPress={() => navigation.goBack()} />

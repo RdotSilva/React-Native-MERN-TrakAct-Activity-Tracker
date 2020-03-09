@@ -8,6 +8,7 @@ import TrackListScreen from "./src/screens/TrackListScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 import SplashScreen from "./src/screens/SplashScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { FontAwesome } from "@expo/vector-icons";
 
 // React navigation
 import { NavigationContainer, StackActions } from "@react-navigation/native";
@@ -101,7 +102,16 @@ const TabNav = () => {
     <Tab.Navigator>
       <Tab.Screen name="Tracks" component={TrackStackNavigator} />
       <Tab.Screen name="Account" component={AccountScreen} />
-      <Tab.Screen name="Create" component={TrackCreateScreen} />
+      <Tab.Screen
+        name="Create"
+        component={TrackCreateScreen}
+        options={{
+          title: "Add Track",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="plus" color={"green"} size={size} />
+          )
+        }}
+      />
     </Tab.Navigator>
   );
 };

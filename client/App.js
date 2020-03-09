@@ -100,7 +100,16 @@ const TrackStackNavigator = () => {
 const TabNav = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Tracks" component={TrackStackNavigator} />
+      <Tab.Screen
+        name="Tracks"
+        component={TrackStackNavigator}
+        options={{
+          title: "Tracks",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="run" color={"purple"} size={size} />
+          )
+        }}
+      />
       <Tab.Screen
         name="Account"
         component={AccountScreen}

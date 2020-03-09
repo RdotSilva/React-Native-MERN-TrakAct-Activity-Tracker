@@ -14,6 +14,14 @@ React Native full stack mobile application that allows users to map & keep track
 
 5. Press "Save Recording" to save your activity to the database.
 
+## How to view previously recorded activities
+
+1. Press the "Tracks" button on the navigation bar.
+
+2. Click the track you want to view.
+
+A map will be displayed with your track data.
+
 ### Prerequisites
 
 You must first install Expo.

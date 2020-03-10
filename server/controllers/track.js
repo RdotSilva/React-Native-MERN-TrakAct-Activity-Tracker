@@ -15,17 +15,22 @@ exports.getAllTracks = async (req, res) => {
 // @route   POST /api/v1/tracks
 // @access  Private
 exports.createTrack = async (req, res) => {
-  const { name, locations } = req.body;
+  const { name, locations, activityType } = req.body;
 
-  if (!name || !locations) {
+  if (!name || !locations || !activityType) {
     return res
       .status(422)
-      .send({ error: "You must provide a name and locations" });
+      .send({ error: "You must provide a name, locations, and activity type" });
   }
 
   try {
     // Create a new track using the request body data
-    const track = new Track({ name, locations, userId: req.user._id });
+    const track = new Track({
+      name,
+      locations,
+      activityType,
+      userId: req.user._id
+    });
     await track.save();
     res.send(track);
   } catch (err) {

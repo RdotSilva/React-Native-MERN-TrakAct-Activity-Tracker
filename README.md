@@ -38,6 +38,18 @@ if you get expo: command not found, you need to install Expo.
 npm install -g expo-cli
 ```
 
+You must create a config file in the server folder with your variables.
+
+1. Create a new file: server/config/config.js
+
+2. Add variables
+
+```
+module.exports = {
+  mongoURI: YOUR_MONGO_URI
+};
+```
+
 ## Installation
 
 1. Install dependencies in server folder.

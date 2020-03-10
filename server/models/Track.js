@@ -21,6 +21,10 @@ const trackSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
+  activityType: {
+    type: String,
+    default: ""
+  },
   locations: [pointSchema]
 });
 

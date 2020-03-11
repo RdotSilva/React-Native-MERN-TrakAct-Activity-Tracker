@@ -14,6 +14,9 @@ const locationReducer = (state, action) => {
       return { ...state, locations: [...state.locations, payload] };
     case "CHANGE_NAME":
       return { ...state, name: payload };
+    // TODO: track type
+    case "CHANGE_TYPE":
+      return { ...state, type: payload };
     case "RESET":
       return { ...state, name: "", locations: [] };
     default:

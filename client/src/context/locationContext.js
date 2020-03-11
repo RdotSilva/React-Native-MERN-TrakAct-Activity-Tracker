@@ -25,6 +25,11 @@ const changeName = dispatch => name => {
   dispatch({ type: "CHANGE_NAME", payload: name });
 };
 
+// TODO: track type
+const changeType = dispatch => type => {
+  dispatch({ type: "CHANGE_TYPE", payload: type });
+};
+
 const startRecording = dispatch => () => {
   dispatch({ type: "START_RECORDING" });
 };

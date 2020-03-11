@@ -3,7 +3,7 @@ import { AsyncStorage } from "react-native";
 
 // Ngrok URL must be updated every 8 hours.
 const instance = axios.create({
-  baseURL: "http://5ad1a894.ngrok.io"
+  baseURL: "http://9166d4ca.ngrok.io"
 });
 
 // Automatically set the authorization header if we have a token in async storage

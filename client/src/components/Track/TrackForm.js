@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import Spacer from "./../Spacer";
 import { Context as LocationContext } from "../../context/locationContext";
 import useSaveTrack from "../../hooks/useSaveTrack";
+import RNPickerSelect from "react-native-picker-select";
 
 const TrackForm = () => {
   const {
@@ -23,6 +24,17 @@ const TrackForm = () => {
           value={name}
           onChangeText={changeName}
           placeholder="Enter Activity Description"
+        />
+      </Spacer>
+      <Spacer>
+        <RNPickerSelect
+          onValueChange={value => console.log(value)}
+          items={[
+            { label: "Run", value: "run" },
+            { label: "Hike", value: "hike" },
+            { label: "Bike Ride", value: "bike" },
+            { label: "Other", value: "other" }
+          ]}
         />
       </Spacer>
       <Spacer>

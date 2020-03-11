@@ -28,6 +28,10 @@ const TrackForm = () => {
       </Spacer>
       <Spacer>
         <RNPickerSelect
+          placeholder={{
+            label: "Select Activity Description",
+            value: null
+          }}
           onValueChange={value => console.log(value)}
           items={[
             { label: "Run", value: "run" },

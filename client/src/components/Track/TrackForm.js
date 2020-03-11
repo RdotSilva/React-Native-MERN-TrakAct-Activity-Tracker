@@ -14,6 +14,8 @@ const TrackForm = () => {
     changeName
   } = useContext(LocationContext);
 
+  // TODO: track type, add onTrackTypeChange method and put that into RNPicker
+
   // React hook
   const [saveTrack] = useSaveTrack();
 

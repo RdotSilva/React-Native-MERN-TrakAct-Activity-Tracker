@@ -60,7 +60,8 @@ export const { Context, Provider } = createDataContext(
     stopRecording,
     addLocation,
     changeName,
+    changeType,
     reset
   },
-  { name: "", recording: false, locations: [], currentLocation: null }
+  { name: "", recording: false, locations: [], currentLocation: null, type: "" }
 );

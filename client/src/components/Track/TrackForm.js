@@ -8,10 +8,11 @@ import RNPickerSelect from "react-native-picker-select";
 
 const TrackForm = () => {
   const {
-    state: { name, recording, locations },
+    state: { name, recording, locations, type },
     startRecording,
     stopRecording,
-    changeName
+    changeName,
+    changeType
   } = useContext(LocationContext);
 
   // TODO: track type, add onTrackTypeChange method and put that into RNPicker
@@ -34,7 +35,7 @@ const TrackForm = () => {
             label: "Select Activity Description",
             value: null
           }}
-          onValueChange={value => console.log(value)}
+          onValueChange={changeType}
           items={[
             { label: "Run", value: "run" },
             { label: "Hike", value: "hike" },

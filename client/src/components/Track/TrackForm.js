@@ -35,6 +35,7 @@ const TrackForm = () => {
             label: "Select Activity Description",
             value: null
           }}
+          doneText="Select Type"
           onValueChange={changeType}
           items={[
             { label: "Run", value: "run" },

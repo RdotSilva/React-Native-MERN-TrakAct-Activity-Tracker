@@ -21,6 +21,7 @@ const TrackDetailScreen = ({ route, navigation }) => {
     <SafeAreaView forceInset={{ top: "always" }}>
       <>
         <Text style={styles.title}>{track.name}</Text>
+        <Text>{track.type}</Text>
         <MapView
           style={styles.map}
           initialRegion={{

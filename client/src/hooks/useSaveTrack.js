@@ -9,12 +9,12 @@ export default () => {
   const navigation = useNavigation();
 
   const {
-    state: { locations, name },
+    state: { locations, name, type },
     reset
   } = useContext(LocationContext);
 
   const saveTrack = async () => {
-    await createTrack(name, locations);
+    await createTrack(name, locations, type);
     reset();
     navigation.navigate("TrackList");
   };

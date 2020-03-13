@@ -41,7 +41,7 @@ const TrackDetailScreen = ({ route, navigation }) => {
     <SafeAreaView forceInset={{ top: "always" }}>
       <>
         <Text style={styles.title}>{track.name}</Text>
-        <Text>{renderTypeIcon(track.type)}</Text>
+        <Text style={styles.typeIcon}>{renderTypeIcon(track.type)}</Text>
         <MapView
           style={styles.map}
           initialRegion={{
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 25
   },
-  type: {
+  typeIcon: {
     alignSelf: "center"
   }
 });

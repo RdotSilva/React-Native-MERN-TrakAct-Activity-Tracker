@@ -22,16 +22,18 @@ const TrackDetailScreen = ({ route, navigation }) => {
   const renderTypeIcon = type => {
     switch (type) {
       case "run":
-        return <MaterialCommunityIcons name="run" size={25} />;
+        return <MaterialCommunityIcons name="run" size={25} color="purple" />;
         break;
       case "hike":
-        return <MaterialCommunityIcons name="pine-tree" size={25} />;
+        return (
+          <MaterialCommunityIcons name="pine-tree" size={25} color="green" />
+        );
         break;
       case "bike":
-        return <MaterialCommunityIcons name="bike" size={25} />;
+        return <MaterialCommunityIcons name="bike" size={25} color="orange" />;
         break;
       case "other":
-        return <FontAwesome name="question" size={25} />;
+        return <FontAwesome name="question" size={25} color="brown" />;
       default:
         break;
     }

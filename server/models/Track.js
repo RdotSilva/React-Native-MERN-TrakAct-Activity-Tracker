@@ -21,7 +21,7 @@ const trackSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
-  activityType: {
+  type: {
     type: String,
     default: ""
   },
